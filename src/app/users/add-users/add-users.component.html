@@ -1,0 +1,110 @@
+<!-- <app-header></app-header> -->
+
+<!-- <div class="row col-md-12 justify-content-center">
+    <flash-messages></flash-messages>
+</div> -->
+
+
+<div class="row col-md-12 justify-content-center ">    
+
+  <div class="formulario">
+
+    <form #f="ngForm"   (ngSubmit)="register(f)">
+      <div class="form-group">
+        <label class="text-success">First Name</label>
+        <input type="text"  class="form-control"  
+        [(ngModel)]="user.first_name"
+        name="firstName"
+        #userFirstName="ngModel"
+        minlength="4"
+        required>
+
+       <div *ngIf="userFirstName.errors?.required && userFirstName.touched"
+       class="alert alert-danger">First Name required</div>
+
+      <div *ngIf="userFirstName.errors?.minlength && userFirstName.touched"
+       class="alert alert-danger">Min 4 caracters</div>
+        
+      </div>
+
+      <div class="form-group">
+        <label class="text-success">Last Name</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="user.last_name"
+        name="lastName"
+        #userLastName="ngModel"
+        minlength="4"
+        required>
+
+        <div *ngIf="userLastName.errors?.required && userLastName.touched"
+        class="alert alert-danger">Last Name requerid</div>
+ 
+       <div *ngIf="userLastName.errors?.minlength && userLastName.touched"
+        class="alert alert-danger">Min 4 caracter</div>        
+        
+      </div>
+
+      <div class="form-group">
+        <label class="text-success">Email</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="user.email"
+        name="email"
+        #userEmail="ngModel"        
+        required>
+
+        <div *ngIf="userEmail.errors?.required && userEmail.touched"
+        class="alert alert-danger">Email requerid</div>      
+
+      </div>
+
+      <div class="form-group">
+        <label class="text-success">Password:</label>
+        <input type="password"  class="form-control"
+        [(ngModel)]="user.password"
+        name="password"
+        #userPassword="ngModel"
+        minlength="4"
+        required>
+
+        <div *ngIf="userPassword.errors?.required && userPassword.touched"
+        class="alert alert-danger">Password requerid</div>
+ 
+       <div *ngIf="userPassword.errors?.minlength && userPassword.touched"
+        class="alert alert-danger">Min 4 caracter</div>
+
+      </div>
+
+      <div class="form-group">
+
+        <select name="role" class="form-control"
+        [(ngModel)]="user.role"
+        name="role"
+        #userRole="ngModel"
+        >
+          <option >select</option>
+          <option value="admin">admin</option>
+          <option value="user">user</option>          
+        </select>
+
+      </div>
+
+      <div class="form-group">
+        <button type="submit" name="submit" value="submit" class="btn-primary btn-sm fa fa-check">Register</button>
+        <button type="reset" class="btn-danger btn-sm fa fa-times">Cancel</button>
+        <br>
+        <br>
+        <br>
+        <a class="nav-link" routerLink="/users"><span class="btn-default btn-sm fa fa-arrow-left">Back</span></a>
+      </div>
+     
+
+    </form>
+
+  </div>   
+  
+
+</div>
+
+<br>
+<br>
+<br>
